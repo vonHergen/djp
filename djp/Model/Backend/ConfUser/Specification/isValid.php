@@ -187,7 +187,7 @@ class isValid
 
         if ($this->add) {
             if ($value != "") {
-                $qH = new \DJP\Model\Backend\DataHandler\QueryHandler();
+                $qH = new \DJP\Model\Backend\ConfUser\DataHandler\QueryHandler();
                 $result = $qH->getUserByEmail($value);
                 if (!empty($result)) {
                     $this->addError("email", EMAILEXISTING);
@@ -197,7 +197,7 @@ class isValid
         }
         else {
             if ($value != $this->oldEmail) {
-                $qH = new \DJP\Model\Backend\DataHandler\QueryHandler();
+                $qH = new \DJP\Model\Backend\ConfUser\DataHandler\QueryHandler();
                 $result = $qH->getUserByEmail($value);
                 if (!empty($result)) {
                     $this->addError("email", EMAILEXISTING);

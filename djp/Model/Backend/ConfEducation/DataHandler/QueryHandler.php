@@ -11,12 +11,18 @@ class QueryHandler
         $this->db = \DJP\Services\Registry::getInstance()->getEntry("db");
     }
     
+	/**
+	*	Alle Bildungsgänge aus der Datenbank abfragen
+	**/
     public function getEducationList()
     {
         $this->db->setStatement("SELECT * FROM t:bildungsgaenge ");
         return $this->db->pselect();
     }
     
+	/**
+	*	Einen Bildungsgang anhand einer ID aus der Datenbank auslesen
+	**/
     public function getEducationById($id)
     {
         $this->db->setStatement("SELECT * FROM t:bildungsgaenge WHERE Bildungsgang_Id = :id ");

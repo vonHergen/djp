@@ -97,11 +97,17 @@ class isValid
         return $this->errors[$key];
     }
 
+	/**
+	* Gültigkeit des Wertes "Name" überprüfen
+	**/
     private function nameValidate($value)
     {
         return $this->defaultValidation("name", $value, 255, true);
     }
     
+	/**
+	* Gültigkeit des Wertes "Beschreibung" überprüfen
+	**/
     private function beschreibungValidate($value)
     {
         return $this->defaultValidation("beschreibung", $value, 3000, true);
