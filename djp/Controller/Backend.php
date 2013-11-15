@@ -7,7 +7,6 @@ class Backend
 
     public function buildPageOutput()
     {
-        //die(md5(trim("1234")));
         session_start();
 
         $error = false;
@@ -16,7 +15,7 @@ class Backend
         $request = \DJP\Services\Registry::getInstance()->getEntry("request");
         $config = \DJP\Services\Registry::getInstance()->getEntry("config");
 
-        if ($auth->isLoggedIn()) { {
+        if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) > 2) { {
                 switch ($request->getAlnum("cmd")) {
                     case "confuser":
                         $controllerCU = new \DJP\Controller\ConfUser\Controller();
@@ -24,12 +23,15 @@ class Backend
                         break;
                     case "confsubject":
                         $controllerCS = new \DJP\Controller\ConfSubject\Controller();
-						$content = $controllerCS->execute();
+                        $content = $controllerCS->execute();
                         break;
                     case "conflfield":
                         $controllerCL = new \DJP\Controller\ConfLfield\Controller();
                         $content = $controllerCL->execute();
                         break;
+                    case "logout":
+                        $auth->logout();
+                        \DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                     default:
                         $content = false;
                         break;

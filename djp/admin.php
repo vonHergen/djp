@@ -16,5 +16,5 @@ if (strnatcmp(phpversion(), '5.3.0') >= 0) {
 ini_set("display_errors", 1);
 
 
-$admin = new \DJP\controller\Backend();
+$admin = new \DJP\Controller\Backend();
 die($admin->buildPageOutput());

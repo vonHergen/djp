@@ -37,7 +37,14 @@
             Benutzerrolle:
             <select name="role">
                 <?php foreach ($this->roles as $role): ?>
-                    <option value="<?php echo $role["Typ_Id"]; ?>"><?php echo $role["Name"]; ?></option>
+                    <option value="<?php echo $role["Typ_Id"]; ?>" <?php if(isset($this->user) && $role["Typ_Id"] == $this->user["Benutzer_Typ"]): ?> selected="selected" <?php endif; ?>><?php echo $role["Name"]; ?></option>
+                <?php endforeach; ?>
+            </select><br><br>
+            
+            Bildungsgang:
+            <select name="education">
+                <?php foreach ($this->educationList as $education): ?>
+                    <option value="<?php echo $education["Bildungsgang_Id"]; ?>" <?php if(isset($this->user) && $education["Bildungsgang_Id"] == $this->user["Bildungsgang_Id"]): ?> selected="selected" <?php endif; ?>><?php echo $education["Name"]; ?></option>
                 <?php endforeach; ?>
             </select><br><br>
 
@@ -45,5 +52,6 @@
             <input type="hidden" name="sent" value="1">
             <input type="hidden" name="oldEmail" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>">
         </form>
+            <input type="button" value="zur&uuml;ck" onclick="self.location.href='<?php echo $this->adminUrl."?cmd=confuser"; ?>';">
     </body> 
 </html>

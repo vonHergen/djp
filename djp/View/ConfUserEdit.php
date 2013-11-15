@@ -4,7 +4,7 @@ namespace DJP\View;
 
 class ConfUserEdit
 {
-    Public function render($user = false, $roles = false, $addOrEdit = false, $errors = false)
+    Public function render($user = false, $roles = false, $educationList = false, $addOrEdit = false, $errors = false)
     {
         $view = new \lw_view(dirname(__FILE__) . '/Templates/ConfUserAddEdit.phtml');                
         
@@ -12,6 +12,7 @@ class ConfUserEdit
         
         $view->user = $user;
         $view->roles = $roles;
+        $view->educationList = $educationList;
         $view->adminUrl = $config["url"]["client"]["admin"];
         $view->errors = $errors;
         if(!$addOrEdit){

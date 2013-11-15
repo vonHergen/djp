@@ -13,13 +13,13 @@ class QueryHandler
     
     public function getLfieldList()
     {
-        $this->db->setStatement("SELECT * FROM t:Lernfelder ");
+        $this->db->setStatement("SELECT * FROM t:lernfelder ");
         return $this->db->pselect();
     }
     
     public function getLfieldById($id)
     {
-        $this->db->setStatement("SELECT * FROM t:Lernfelder WHERE Lernfeld_Id = :id ");
+        $this->db->setStatement("SELECT * FROM t:lernfelder WHERE Lernfeld_Id = :id ");
         $this->db->bindParameter("id", "i", $id);
         return $this->db->pselect1();
     }

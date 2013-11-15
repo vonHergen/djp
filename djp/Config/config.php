@@ -4,19 +4,19 @@
 type = "mysqli"
 prefix = ""
 user = "root"
-pass = ""
+pass = "tischtennis"
 host = "localhost"
 name = "djpdb"      
 
 [path]
-client = /var/www/DJP/
-media = /var/www/DJP/Media/
+client = /var/www/djp/djp/
+media = /var/www/djp/djp/Media/
 
 [url]
 domain = "http://localhost/"
-client["base"] = "http://localhost/DJP/"
-client["index"] = "http://localhost/DJP/index.php"
-client["admin"] = "http://localhost/DJP/admin.php"
-media = "http://localhost/DJP/Media/"
-pics = "http://localhost/DJP/Media/images/"
+client["base"] = "http://localhost/djp/djp/"
+client["index"] = "http://localhost/djp/djp/index.php"
+client["admin"] = "http://localhost/djp/djp/admin.php"
+media = "http://localhost/djp/djp/Media/"
+pics = "http://localhost/djp/djp/Media/images/"
        

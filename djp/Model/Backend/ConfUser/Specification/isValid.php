@@ -42,7 +42,8 @@ class isValid
             "email",
             "role",
             "password",
-            "password_repeat"
+            "password_repeat",
+            "education"
         );
     }
 
@@ -115,6 +116,17 @@ class isValid
         }
         else {
             $this->addError("role", DIGITFIELD);
+            return false;
+        }
+    }
+    
+    private function educationValidate($value)
+    {
+        if (is_int(intval($value))) {
+            return true;
+        }
+        else {
+            $this->addError("education", DIGITFIELD);
             return false;
         }
     }

@@ -29,7 +29,7 @@
 
                 if (!$isValid->validate()) {
                     $view = new \DJP\View\ConfUserEdit();
-                    $content = $view->render($queryHandler->getUserById($request->getInt("id")), $queryHandler->getUserRoles(), true, $isValid->getErrors());
+                    $content = $view->render($queryHandler->getUserById($request->getInt("id")), $queryHandler->getUserRoles(), $queryHandler->getEducationList(), true, $isValid->getErrors());
                 }
                 else {
                     $commandHandler->updateUserById($request->getInt("id"), $array);
@@ -39,7 +39,7 @@
             }
             else {
                 $view = new \DJP\View\ConfUserEdit();
-                $content = $view->render($queryHandler->getUserById($request->getInt("id")), $queryHandler->getUserRoles(), true, false);
+                $content = $view->render($queryHandler->getUserById($request->getInt("id")), $queryHandler->getUserRoles(), $queryHandler->getEducationList(), true, false);
             }
         }
         elseif ($request->getAlnum("task") == "add") {
@@ -56,7 +56,7 @@
                     foreach ($array as $key => $value) {
                         $array2[ucfirst($key)] = $value;
                     }
-                    $content = $view->render($array2, $queryHandler->getUserRoles(), false, $isValid->getErrors());
+                    $content = $view->render($array2, $queryHandler->getUserRoles(), $queryHandler->getEducationList(), false, $isValid->getErrors());
                 }
                 else {
                     $commandHandler->addUser($array);
@@ -65,7 +65,7 @@
             }
             else {
                 $view = new \DJP\View\ConfUserEdit();
-                $content = $view->render(false, $queryHandler->getUserRoles());
+                $content = $view->render(false, $queryHandler->getUserRoles(), $queryHandler->getEducationList());
             }
         }
         elseif ($request->getAlnum("task") == "delete") {

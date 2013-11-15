@@ -13,26 +13,26 @@ class QueryHandler
     
     public function getSubjectList()
     {
-        $this->db->setStatement("SELECT * FROM t:Faecher ");
+        $this->db->setStatement("SELECT * FROM t:faecher ");
         return $this->db->pselect();
     }
     
     public function getSubjectById($id)
     {
-        $this->db->setStatement("SELECT * FROM t:Faecher WHERE Fach_Id = :id ");
+        $this->db->setStatement("SELECT * FROM t:faecher WHERE Fach_Id = :id ");
         $this->db->bindParameter("id", "i", $id);
         return $this->db->pselect1();
     }
     
     public function getUserRoles()
     {
-        $this->db->setStatement("SELECT * FROM t:Benutzer_Typen ");
+        $this->db->setStatement("SELECT * FROM t:benutzer_Typen ");
         return $this->db->pselect();
     }
     
     public function getUserByEmail($email)
     {
-        $this->db->setStatement("SELECT * FROM t:Benutzer WHERE Email = :email ");
+        $this->db->setStatement("SELECT * FROM t:benutzer WHERE Email = :email ");
         $this->db->bindParameter("email", "s", $email);
         return $this->db->pselect1();
     }

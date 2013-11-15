@@ -89,7 +89,7 @@ class lw_user extends lw_object
      */
     public function getUserdataByLogin($name, $pass, $type = false)
     {
-        $this->db->setStatement('SELECT * FROM t:Benutzer WHERE Email = :email AND Passwort = :pass ');
+        $this->db->setStatement('SELECT * FROM t:benutzer WHERE Email = :email AND Passwort = :pass ');
         $this->db->bindParameter('email', 's', $name);
         $this->db->bindParameter('pass', 's', $pass);
         #die($this->db->prepare());
@@ -122,7 +122,7 @@ class lw_user extends lw_object
      */
     public function getUserdataByID($id)
     {
-        $this->db->setStatement('SELECT * FROM t:Benutzer WHERE Benutzer_Id = :id ');
+        $this->db->setStatement('SELECT * FROM t:benutzer WHERE Benutzer_Id = :id ');
         $this->db->bindParameter('id', 'i', $id);
         $this->result = $this->db->pselect1();
         if (count($this->result) > 0) {

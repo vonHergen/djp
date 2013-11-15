@@ -14,7 +14,7 @@ class CommandHandler
 
     public function updateLfieldById($id, $array)
     {
-        $this->db->setStatement("UPDATE t:Lernfelder SET Name = :name, Beschreibung = :beschreibung WHERE Lernfeld_Id = :id");
+        $this->db->setStatement("UPDATE t:lernfelder SET Name = :name, Beschreibung = :beschreibung WHERE Lernfeld_Id = :id");
 		$this->db->bindParameter("id", "i", $id);
         $this->db->bindParameter("name", "s", $array["name"]);
         $this->db->bindParameter("beschreibung", "s", $array["beschreibung"]);
@@ -24,7 +24,7 @@ class CommandHandler
 
     public function addLfield($array)
     {
-		$this->db->setStatement("INSERT INTO t:Lernfelder (name, beschreibung) VALUES (:name, :beschreibung) ");
+		$this->db->setStatement("INSERT INTO t:lernfelder (name, beschreibung) VALUES (:name, :beschreibung) ");
       
 		$this->db->bindParameter("name", "s", $array["name"]);
         $this->db->bindParameter("beschreibung", "s", $array["beschreibung"]);
@@ -33,7 +33,7 @@ class CommandHandler
 
     public function deleteLfieldById($id)
     {
-        $this->db->setStatement("DELETE FROM t:Lernfelder WHERE Lernfeld_Id = :id ");
+        $this->db->setStatement("DELETE FROM t:lernfelder WHERE Lernfeld_Id = :id ");
 		$this->db->bindParameter("id", "i", $id);
         return $this->db->pdbquery();
     }

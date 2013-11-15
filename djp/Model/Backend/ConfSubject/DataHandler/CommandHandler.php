@@ -14,7 +14,7 @@ class CommandHandler
 
     public function updateSubjectById($id, $array)
     {
-        $this->db->setStatement("UPDATE t:Faecher SET Kuerzel = :kuerzel, Name = :name WHERE Fach_Id = :id ");
+        $this->db->setStatement("UPDATE t:faecher SET Kuerzel = :kuerzel, Name = :name WHERE Fach_Id = :id ");
 		$this->db->bindParameter("id", "i", $id);
 		$this->db->bindParameter("kuerzel", "s", $array["kuerzel"]);
 		$this->db->bindParameter("name", "s", $array["name"]);
@@ -24,7 +24,7 @@ class CommandHandler
 
     public function addSubject($array)
     {
-		$this->db->setStatement("INSERT INTO t:Faecher (Kuerzel, Name) VALUES (:kuerzel, :name) ");
+		$this->db->setStatement("INSERT INTO t:faecher (Kuerzel, Name) VALUES (:kuerzel, :name) ");
 		$this->db->bindParameter("kuerzel", "s", $array["kuerzel"]);
 		$this->db->bindParameter("name", "s", $array["name"]);
 
@@ -33,7 +33,7 @@ class CommandHandler
 
     public function deleteSubjectById($id)
     {
-		$this->db->setStatement("DELETE FROM t:Faecher WHERE Fach_Id = :id ");
+		$this->db->setStatement("DELETE FROM t:faecher WHERE Fach_Id = :id ");
 		$this->db->bindParameter("id", "i", $id);
         return $this->db->pdbquery();
     }
