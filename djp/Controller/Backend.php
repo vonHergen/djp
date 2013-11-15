@@ -29,9 +29,9 @@ class Backend
                         $controllerCL = new \DJP\Controller\ConfLfield\Controller();
                         $content = $controllerCL->execute();
                         break;
-                    case "logout":
-                        $auth->logout();
-                        \DJP\Services\Page::reload($config["url"]["client"]["admin"]);
+					case "logout":
+						$auth->logout();
+						\DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                     default:
                         $content = false;
                         break;
