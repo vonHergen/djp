@@ -12,6 +12,9 @@ class CommandHandler
         $this->db = \DJP\Services\Registry::getInstance()->getEntry("db");
     }
 
+	/**
+	*	Fach anhand einer ID aus der Datenbank auslesen
+	**/
     public function updateSubjectById($id, $array)
     {
         $this->db->setStatement("UPDATE t:faecher SET Kuerzel = :kuerzel, Name = :name WHERE Fach_Id = :id ");
@@ -22,6 +25,9 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+	/**
+	*	Neues Fach in die Datenbank schreiben
+	**/
     public function addSubject($array)
     {
 		$this->db->setStatement("INSERT INTO t:faecher (Kuerzel, Name) VALUES (:kuerzel, :name) ");
@@ -31,6 +37,9 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+	/**
+	*	Fach anhand einer ID aus der Datenbank löschen
+	**/
     public function deleteSubjectById($id)
     {
 		$this->db->setStatement("DELETE FROM t:faecher WHERE Fach_Id = :id ");
