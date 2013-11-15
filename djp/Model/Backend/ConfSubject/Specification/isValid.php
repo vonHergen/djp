@@ -100,11 +100,19 @@ class isValid
         return $this->errors[$key];
     }
 
+	/**
+	*	Prüfen der Gültigkeit von "kuerzel"
+	*	(Maximale Länge 255 Zeichen)
+	**/
     private function kuerzelValidate($value)
     {
         return $this->defaultValidation("kuerzel", $value, 255, true);
     }
 
+	/**
+	*	Prüfen der Gültigkeit von "name"
+	*	(Maximale Länge 255 Zeichen)
+	**/
     private function nameValidate($value)
     {
         return $this->defaultValidation("name", $value, 255, true);
