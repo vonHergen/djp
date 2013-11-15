@@ -4,7 +4,7 @@
 type = "mysqli"
 prefix = ""
 user = "root"
-pass = ""
+pass = "tischtennis"
 host = "localhost"
 name = "djpdb"      
 
