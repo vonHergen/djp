@@ -101,8 +101,8 @@ class isValid
     }
 
 	/**
-	*	Prüfen der Gültigkeit von "kuerzel"
-	*	(Maximale Länge 255 Zeichen)
+	*	Prï¿½fen der Gueltigkeit von "kuerzel"
+	*	(Maximale Laenge 255 Zeichen)
 	**/
     private function kuerzelValidate($value)
     {
@@ -110,8 +110,8 @@ class isValid
     }
 
 	/**
-	*	Prüfen der Gültigkeit von "name"
-	*	(Maximale Länge 255 Zeichen)
+	*	Pruefen der Gueltigkeit von "name"
+	*	(Maximale Laenge 255 Zeichen)
 	**/
     private function nameValidate($value)
     {

@@ -98,8 +98,8 @@ class isValid
     }
 
 	/**
-	*	Gültigkeit von "Name" überprüfen
-	*	(Maximale Länge ist auf 255 Zeichen festgesetzt)
+	*	Gueltigkeit von "Name" ï¿½berprï¿½fen
+	*	(Maximale Laenge ist auf 255 Zeichen festgesetzt)
 	**/
     private function nameValidate($value)
     {
@@ -107,8 +107,8 @@ class isValid
     }
     
 	/**
-	* Gültigkeit von "Beschreibung" überprüfen
-	* (Maximale Länge ist auf 3000 Zeichen festgesetzt)
+	* Gueltigkeit von "Beschreibung" ï¿½berprï¿½fen
+	* (Maximale Laenge ist auf 3000 Zeichen festgesetzt)
 	**/
     private function beschreibungValidate($value)
     {

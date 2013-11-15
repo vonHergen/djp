@@ -98,7 +98,7 @@ class isValid
     }
 
 	/**
-	* Gültigkeit des Wertes "Name" überprüfen
+	* Gueltigkeit des Wertes "Name" ueberpruefen
 	**/
     private function nameValidate($value)
     {
@@ -106,7 +106,7 @@ class isValid
     }
     
 	/**
-	* Gültigkeit des Wertes "Beschreibung" überprüfen
+	* Gueltigkeit des Wertes "Beschreibung" ueberpruefen
 	**/
     private function beschreibungValidate($value)
     {

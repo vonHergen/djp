@@ -109,6 +109,12 @@ class isValid
         return $this->errors[$key];
     }
 
+    /**
+     * Pruefung der Benutzer-Rollen ID.
+     * 
+     * @param $value
+     * @return boolean
+     */
     private function roleValidate($value)
     {
         if (is_int(intval($value))) {
@@ -120,6 +126,12 @@ class isValid
         }
     }
     
+    /**
+     * Pruefung der Bildungsgang ID.
+     * 
+     * @param $value
+     * @return boolean
+     */
     private function educationValidate($value)
     {
         if (is_int(intval($value))) {
@@ -131,16 +143,34 @@ class isValid
         }
     }
 
+    /**
+     * Pruefung des Vornamens ( Plfichtfeld + max. 255 Zeichen )
+     * 
+     * @param  $value
+     * @return bool
+     */
     private function vornameValidate($value)
     {
         return $this->defaultValidation("vorname", $value, 255, true);
     }
 
+    /**
+     * Pruefung des Nachnamens ( Plfichtfeld + max. 255 Zeichen )
+     * 
+     * @param  $value
+     * @return bool
+     */
     private function nachnameValidate($value)
     {
         return $this->defaultValidation("nachname", $value, 255, true);
     }
 
+    /**
+     * Pruefung des Passworts (max. 255 Zeichen + Gleichheit von PW/PW-WDHL)
+     * 
+     * @param  $value
+     * @return bool
+     */
     private function passwordValidate($value)
     {
         $bool = true;
@@ -174,6 +204,12 @@ class isValid
         return true;
     }
 
+    /**
+     * Pruefung der E-Mail ( Plfichtfeld + E-Mail Syntax )
+     * 
+     * @param  $value
+     * @return bool
+     */
     private function emailValidate($value)
     {
         $bool = true;
@@ -212,6 +248,15 @@ class isValid
         return true;
     }
 
+    /**
+     * Standardvalidierung auf Max. Laenge und optionaler auf Pflichtfeld.
+     * 
+     * @param string $key
+     * @param int/string $value
+     * @param int $length
+     * @param bool $required
+     * @return boolean
+     */
     private function defaultValidation($key, $value, $length, $required = false)
     {
         $bool = true;
@@ -231,6 +276,13 @@ class isValid
         return true;
     }
 
+    /**
+     * Pflichtfeld-Pruefung
+     * 
+     * @param string $key
+     * @param int/string $value
+     * @return boolean
+     */
     private function requiredValidation($key, $value)
     {
         if ($value == "") {

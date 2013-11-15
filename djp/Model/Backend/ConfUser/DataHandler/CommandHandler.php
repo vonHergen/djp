@@ -63,7 +63,7 @@ class CommandHandler
     }
 
     /**
-     * Einen bestehenden Benutzer, anhand der ID, aus der Datenbank löschen.
+     * Einen bestehenden Benutzer, anhand der ID, aus der Datenbank loeschen.
      * 
      * @param int $id
      * @return bool

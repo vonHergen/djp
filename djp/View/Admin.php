@@ -10,6 +10,8 @@ class Admin
         
         $config = \DJP\Services\Registry::getInstance()->getEntry("config");
         
+        #Setzen der Variablen, die im Template als Klassenvariablen zur
+        #Verfügung stehen sollen.
         $view->response = $response;
         $view->content = $content;
         $view->adminUrl = $config["url"]["client"]["admin"];
