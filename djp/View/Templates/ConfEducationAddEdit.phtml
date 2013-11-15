@@ -1,0 +1,27 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <?php if(is_array($this->errors)): ?>
+        <div style =" color: darkred">
+            <?php if(isset($this->errors["name"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["name"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            <?php if(isset($this->errors["beschreibung"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["beschreibung"][2])): ?><p>Beschreibung darf max. aus 3000 Zeichen bestehen</p><?php endif; ?>
+            
+        </div>
+        <?php endif; ?>
+        <form action="<?php echo $this->actionUrl; ?>" method="post">
+            Bildungsgang <?php echo $this->cmd; ?> <br><br>
+
+            K&uuml;rzel:
+            <input name="name" type="Text" value="<?php if(isset($this->education)) echo $this->education["Name"]; ?>"/><br>
+
+            Beschreibung:
+            <textarea name="beschreibung"><?php if(isset($this->education)) echo $this->education["Beschreibung"]; ?></textarea><br>
+
+            <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
+            <input type="hidden" name="sent" value="1">
+        </form>
+    </body> 
+</html>
