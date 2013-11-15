@@ -7,11 +7,21 @@ class CommandHandler
 
     private $db;
 
+    /**
+     * Datenbankobjekt aus der Registry laden
+     */
     public function __construct()
     {
         $this->db = \DJP\Services\Registry::getInstance()->getEntry("db");
     }
 
+    /**
+     * Einen bestehenden Benutzer, anhand der ID, in der Datenbank aktualisieren.
+     * 
+     * @param int $id
+     * @param array $array
+     * @return bool
+     */
     public function updateUserById($id, $array)
     {
         if (!empty($array["password"])) {
@@ -31,6 +41,12 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+    /**
+     * Einen neuen Benutzer in der Datenbank speichern.
+     * 
+     * @param array $array
+     * @return bool
+     */
     public function addUser($array)
     {
 
@@ -46,6 +62,12 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+    /**
+     * Einen bestehenden Benutzer, anhand der ID, aus der Datenbank löschen.
+     * 
+     * @param int $id
+     * @return bool
+     */
     public function deleteUserById($id)
     {
         $this->db->setStatement("DELETE FROM t:benutzer WHERE Benutzer_Id = :id ");

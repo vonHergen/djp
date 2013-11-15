@@ -37,14 +37,14 @@
             Benutzerrolle:
             <select name="role">
                 <?php foreach ($this->roles as $role): ?>
-                    <option value="<?php echo $role["Typ_Id"]; ?>" <?php if(isset($this->user) && $role["Typ_Id"] == $this->user["Benutzer_Typ"]): ?> selected="selected" <?php endif; ?>><?php echo $role["Name"]; ?></option>
+                    <option value="<?php echo $role["Typ_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Benutzer_Typ"]) && $role["Typ_Id"] == $this->user["Benutzer_Typ"]): ?> selected="selected" <?php endif; ?>><?php echo $role["Name"]; ?></option>
                 <?php endforeach; ?>
             </select><br><br>
             
             Bildungsgang:
             <select name="education">
                 <?php foreach ($this->educationList as $education): ?>
-                    <option value="<?php echo $education["Bildungsgang_Id"]; ?>" <?php if(isset($this->user) && $education["Bildungsgang_Id"] == $this->user["Bildungsgang_Id"]): ?> selected="selected" <?php endif; ?>><?php echo $education["Name"]; ?></option>
+                    <option value="<?php echo $education["Bildungsgang_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Bildungsgang_Id"]) && $education["Bildungsgang_Id"] == $this->user["Bildungsgang_Id"]): ?> selected="selected" <?php endif; ?>><?php echo $education["Name"]; ?></option>
                 <?php endforeach; ?>
             </select><br><br>
 
