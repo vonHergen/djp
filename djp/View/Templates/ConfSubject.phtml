@@ -1,0 +1,18 @@
+<h1>F&auml;cher</h1>
+<a href="<?php echo $this->adminUrl."?cmd=confsubject&task=add"; ?>">Fach hinzuf&uuml;gen</a>
+	<table class="admin_table">
+		<tbody><tr>
+			<th>K&uuml;rzel</th>
+			<th>Bezeichnung</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+        <?php foreach($this->subjectList as $subject):?>
+		<tr>
+			<td><?php echo $subject["Kuerzel"];?></td>
+			<td><?php echo $subject["Name"];?></td>
+			<td><a href="<?php echo $this->adminUrl."?cmd=confsubject&task=edit&id=".$subject["Fach_Id"];?>">Bearbeiten</a></td>
+			<td><a href="<?php echo $this->adminUrl."?cmd=confsubject&task=delete&id=".$subject["Fach_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+		</tr>
+        <?php endforeach;?>
+	</tbody></table>

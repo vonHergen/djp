@@ -1,0 +1,27 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <?php if(is_array($this->errors)): ?>
+        <div style =" color: darkred">
+            <?php if(isset($this->errors["kuerzel"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["kuerzel"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            <?php if(isset($this->errors["name"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["name"][2])): ?><p>Beschreibung darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            
+        </div>
+        <?php endif; ?>
+        <form action="<?php echo $this->actionUrl; ?>" method="post">
+            Fach <?php echo $this->cmd; ?> <br><br>
+
+            K&uuml;rzel:
+            <input name="kuerzel" type="Text" value="<?php if(isset($this->subject)) echo $this->subject["Kuerzel"]; ?>"/><br>
+
+            Bezeichnung:
+            <textarea name="name"><?php if(isset($this->subject)) echo $this->subject["Name"]; ?></textarea><br>
+
+            <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
+            <input type="hidden" name="sent" value="1">
+        </form>
+    </body> 
+</html>

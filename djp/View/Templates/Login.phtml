@@ -1,0 +1,19 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <?php if($this->error): ?>
+            <p style="color: darkred;">INVALID</p>
+        <?php endif; ?>
+        <form action="<?php $this->actionUrl; ?>" method="post">
+            E-Mail:
+            <input name="email" type="Text"/><br>
+
+            Passwort:
+            <input name="password" type="password"/><br>
+
+            <input name="login" type="submit" value="Login" /><br>
+            <input type="hidden" name="sent" value ="1">
+        </form>
+    </body> 
+</html>

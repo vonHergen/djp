@@ -1,0 +1,49 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <?php if(is_array($this->errors)): ?>
+        <div style =" color: darkred">
+            <?php if(isset($this->errors["nachname"][1])): ?><p>Nachname ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["nachname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            <?php if(isset($this->errors["vorname"][1])): ?><p>Vorname ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["vorname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            <?php if(isset($this->errors["email"][3])): ?><p>Es wurde keine korrekte E-Mail angegeben</p><?php endif; ?>
+            <?php if(isset($this->errors["email"][7])): ?><p>Die angegebene E-Mail existiert bereits</p><?php endif; ?>
+            <?php if(isset($this->errors["password"][6])): ?><p>Das Passwort muss aus mindestens 5 Zeichen bestehen</p><?php endif; ?>
+            <?php if(isset($this->errors["password"][5])): ?><p>Passwort und Passwort WDHL m&uuml;ssen identisch sein</p><?php endif; ?>
+            <?php if(isset($this->errors["password"][1])): ?><p>Passwort ist ein Pflichtfeld</p><?php endif; ?>
+            
+        </div>
+        <?php endif; ?>
+        <form action="<?php echo $this->actionUrl; ?>" method="post">
+            Benutzer <?php echo $this->cmd; ?> <br><br>
+
+            Vorname:
+            <input name="vorname" type="Text" value="<?php if(isset($this->user)) echo $this->user["Vorname"]; ?>"/><br>
+
+            Nachname:
+            <input name="nachname" type="Text" value="<?php if(isset($this->user)) echo $this->user["Nachname"]; ?>"/><br>
+
+            E-Mail:
+            <input name="email" type="Text" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>" /><br>
+            
+            Passwort:
+            <input name="password" type="password" value="" /><br>
+            
+            Passwort WDHL:
+            <input name="password_repeat" type="password" value="" /><br>
+            
+            Benutzerrolle:
+            <select name="role">
+                <?php foreach ($this->roles as $role): ?>
+                    <option value="<?php echo $role["Typ_Id"]; ?>"><?php echo $role["Name"]; ?></option>
+                <?php endforeach; ?>
+            </select><br><br>
+
+            <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
+            <input type="hidden" name="sent" value="1">
+            <input type="hidden" name="oldEmail" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>">
+        </form>
+    </body> 
+</html>

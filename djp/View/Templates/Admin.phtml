@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administration</title>
+        <script type="text/javascript" src="<?php echo $this->jQueryMin; ?>"></script>
+    </head>
+    <?php if ($this->response > 0): ?>
+        <script>
+            $(document).ready(function() {
+                <?php
+                if ($this->response == 1) {
+                    $message = "Nutzer wurde erfolgreich bearbeitet";
+                }
+                if ($this->response == 2) {
+                    $message = "Nutzer wurde erfolgreich angelegt";
+                }
+                if ($this->response == 3) {
+                    $message = "Nutzer wurde erfolgreich gel&ouml;scht";
+                }
+				if ($this->response == 4) {
+                    $message = "Lernfeld wurde erfolgreich bearbeitet";
+                }
+                if ($this->response == 5) {
+                    $message = "Lernfeld wurde erfolgreich angelegt";
+                }
+                if ($this->response == 6) {
+                    $message = "Lernfeld wurde erfolgreich gel&ouml;scht";
+                }
+                ?>
+                var data = $('<div style="background-color:greenyellow;padding:10px;"><h3><?php echo $message; ?></h3></div>');
+                var popup = $('<div id="popup" style="border:2px solid green;">');
+                popup.append(data);
+                $('body').append(popup);
+                popup.css("position", "absolute");
+                popup.css("top", ($(window).height() - popup.height()) / 2 + $(window).scrollTop() + "px");
+                popup.css("left", ($(window).width() - popup.width()) / 2 + $(window).scrollLeft() + "px");
+                popup.hide();
+                popup.fadeIn(1000, 'linear');
+                popup.fadeOut(1000, 'linear');
+            });
+        </script>
+    <?php endif; ?>
+    <body>
+        <div>
+            <p id="navi_top"><a href="prototyp_v0.1.html">Startseite</a> <a href="administration.html" class="active">Administration</a></p>
+        </div>
+        <div>
+            <p id="navi_top"><a href="<?php echo $this->adminUrl . "?cmd=confuser"; ?>">Benutzer</a> <a href="<?php echo $this->adminUrl . "?cmd=confsubject";?>">F&auml;cher</a> <a href="<?php echo $this->adminUrl . "?cmd=conflfield"; ?>">Lernfelder</a></p>
+        </div>
+
+        <div id="page">
+
+            <?php echo $this->content; ?>
+
+        </div>
+    </body>
+</html>

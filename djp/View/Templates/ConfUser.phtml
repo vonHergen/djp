@@ -1,0 +1,21 @@
+<h1>User</h1>
+<a href="<?php echo $this->adminUrl."?cmd=confuser&task=add"; ?>">Benutzer hinzuf&uuml;gen</a>
+<table class="admin_table">
+    <tr>
+        <th>Name</th>
+        <th>Benutzerrolle</th>
+        <th>Email</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    <?php foreach ($this->userList as $user): ?>
+        <tr>
+            <td><?php echo $user["Nachname"]. " , " . $user["Vorname"]; ?></td>
+            <td><?php echo $user["Name"]; ?></td>
+            <td><?php echo $user["Email"]; ?></td>
+            <td><a href="<?php echo $this->adminUrl."?cmd=confuser&task=edit&id=".$user["Benutzer_Id"]; ?>">Bearbeiten</a></td>
+            <td><a href="<?php echo $this->adminUrl."?cmd=confuser&task=delete&id=".$user["Benutzer_Id"]; ?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+        </tr>
+    <?php endforeach; ?>
+</table>

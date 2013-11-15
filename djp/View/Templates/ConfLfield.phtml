@@ -1,0 +1,18 @@
+<h1>Lernfelder</h1>
+<a href="<?php echo $this->adminUrl."?cmd=conflfield&task=add"; ?>">Lernfeld hinzuf&uuml;gen</a>
+	<table class="admin_table">
+		<tbody><tr>
+            <th>K&uuml;rzel</th>
+			<th>Bezeichnung</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+		</tr>
+        <?php foreach($this->lfieldList as $lfield):?>
+		<tr>
+			<td><?php echo $lfield["Name"];?></td>
+			<td><?php echo $lfield["Beschreibung"];?></td>
+			<td><a href="<?php echo $this->adminUrl."?cmd=conflfield&task=edit&id=".$lfield["Lernfeld_Id"];?>">Bearbeiten</a></td>
+			<td><a href="<?php echo $this->adminUrl."?cmd=conflfield&task=delete&id=".$lfield["Lernfeld_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+		</tr>
+        <?php endforeach;?>
+	</tbody></table>
