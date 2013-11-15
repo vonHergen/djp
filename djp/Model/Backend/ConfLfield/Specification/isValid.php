@@ -97,11 +97,19 @@ class isValid
         return $this->errors[$key];
     }
 
+	/**
+	*	Gültigkeit von "Name" überprüfen
+	*	(Maximale Länge ist auf 255 Zeichen festgesetzt)
+	**/
     private function nameValidate($value)
     {
         return $this->defaultValidation("name", $value, 255, true);
     }
     
+	/**
+	* Gültigkeit von "Beschreibung" überprüfen
+	* (Maximale Länge ist auf 3000 Zeichen festgesetzt)
+	**/
     private function beschreibungValidate($value)
     {
         return $this->defaultValidation("beschreibung", $value, 3000, true);

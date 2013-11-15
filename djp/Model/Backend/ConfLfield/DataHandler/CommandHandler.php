@@ -12,6 +12,9 @@ class CommandHandler
         $this->db = \DJP\Services\Registry::getInstance()->getEntry("db");
     }
 
+	/**
+	*	Lernfeld anhand einer ID in der Datenbank aktualisieren
+	**/
     public function updateLfieldById($id, $array)
     {
         $this->db->setStatement("UPDATE t:lernfelder SET Name = :name, Beschreibung = :beschreibung WHERE Lernfeld_Id = :id");
@@ -22,6 +25,9 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+	/**
+	*	Neues Lernfeld in die Datenbank eintragen
+	**/
     public function addLfield($array)
     {
 		$this->db->setStatement("INSERT INTO t:lernfelder (name, beschreibung) VALUES (:name, :beschreibung) ");
@@ -31,6 +37,9 @@ class CommandHandler
         return $this->db->pdbquery();
     }
 
+	/**
+	*	Lernfeld anhand einer ID aus der Datenbank löschen
+	**/
     public function deleteLfieldById($id)
     {
         $this->db->setStatement("DELETE FROM t:lernfelder WHERE Lernfeld_Id = :id ");

@@ -13,10 +13,10 @@ client = /var/www/djp/djp/
 media = /var/www/djp/djp/Media/
 
 [url]
-domain = "http://localhost/"
-client["base"] = "http://localhost/djp/djp/"
-client["index"] = "http://localhost/djp/djp/index.php"
-client["admin"] = "http://localhost/djp/djp/admin.php"
-media = "http://localhost/djp/djp/Media/"
-pics = "http://localhost/djp/djp/Media/images/"
+domain = "http://10.3.2.73/"
+client["base"] = "http://10.3.2.73/djp"
+client["index"] = "http://10.3.2.73/djp/index.php"
+client["admin"] = "http://10.3.2.73/djp/admin.php"
+media = "http://10.3.2.73/djp/djp/Media/"
+pics = "http://10.3.2.73/djp/djp/Media/images/"
        
