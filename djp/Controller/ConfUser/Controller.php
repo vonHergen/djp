@@ -3,12 +3,7 @@
     namespace DJP\Controller\ConfUser;
     
     class Controller
-    {
-        public function __construct()
-        {
-            
-        }
-        
+    {        
         public function execute() 
         {
         $auth = \DJP\Services\Registry::getInstance()->getEntry("auth");
@@ -18,6 +13,11 @@
         $queryHandler = new \DJP\Model\Backend\ConfUser\DataHandler\QueryHandler();
         $commandHandler = new \DJP\Model\Backend\ConfUser\DataHandler\CommandHandler();
 
+        /**
+         * /F180/
+         * 
+         * Bestehenden Benutzer bearbeiten.
+         */
         if ($request->getAlnum("task") == "edit") {
             if ($request->getInt("sent")) {
                 $array = $request->getPostArray();
@@ -42,6 +42,11 @@
                 $content = $view->render($queryHandler->getUserById($request->getInt("id")), $queryHandler->getUserRoles(), $queryHandler->getEducationList(), true, false);
             }
         }
+        /**
+         * /F210/
+         * 
+         * Neuen Benutzer anlegen
+         */
         elseif ($request->getAlnum("task") == "add") {
             if ($request->getInt("sent")) {
                 $array = $request->getPostArray();
@@ -68,6 +73,11 @@
                 $content = $view->render(false, $queryHandler->getUserRoles(), $queryHandler->getEducationList());
             }
         }
+        /**
+         * /F180/
+         * 
+         * Bestehenden Benutzer entfernen.
+         */
         elseif ($request->getAlnum("task") == "delete") {
             $commandHandler->deleteUserById($request->getInt("id"));
             $auth->reloadData();
@@ -77,8 +87,6 @@
             $view = new \DJP\View\ConfUser();
             $content = $view->render($queryHandler->getUserList());
         }
-        return $content;
-        #print_r($request->getPostArray());die();    
+        return $content;  
         }
     }
-?>

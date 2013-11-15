@@ -4,12 +4,6 @@ namespace DJP\Controller\ConfEducation;
 
 class Controller
 {
-
-    public function __construct()
-    {
-        
-    }
-
     public function execute()
     {
         $auth = \DJP\Services\Registry::getInstance()->getEntry("auth");
@@ -19,6 +13,11 @@ class Controller
         $queryHandler = new \DJP\Model\Backend\ConfEducation\DataHandler\QueryHandler();
         $commandHandler = new \DJP\Model\Backend\ConfEducation\DataHandler\CommandHandler();
         
+        /**
+         * /F200/
+         * 
+         * Bestehenden Bildungsgang bearbeiten.
+         */
         if($request->getAlnum("task") == "edit") {
             if($request->getInt("sent")) {
                 $array = $request->getPostArray();
@@ -41,6 +40,9 @@ class Controller
                 $view = new \DJP\View\ConfEducationEdit();
                 $content = $view->render($queryHandler->getEducationById($request->getInt("id")), true, false);
 			}
+        /**
+         * Neuen Bildungsgang anlegen.
+         */
         } elseif ($request->getAlnum("task") == "add") {
 			if($request->getInt("sent")) {
 				$array = $request->getPostArray();
@@ -65,6 +67,11 @@ class Controller
 				$view = new \DJP\View\ConfEducationEdit();
 				$content = $view->render();
 			}
+        /**
+         * /F200/
+         * 
+         * Bestehenden Bildungsgang entfernen.
+         */
 		} elseif ($request->getAlnum("task") == "delete") {
 			$commandHandler->deleteEducationById($request->getInt("id"));
             \DJP\Services\Page::reload($config["url"]["client"]["admin"] . "?cmd=confeducation&response=6");

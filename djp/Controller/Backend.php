@@ -16,19 +16,24 @@ class Backend
         $config = \DJP\Services\Registry::getInstance()->getEntry("config");
 
         if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) > 2) { {
+                            
                 switch ($request->getAlnum("cmd")) {
+                    # Benutzerverwaltung ( Anlegen, Löschen, Bearbeiten )
                     case "confuser":
                         $controllerCU = new \DJP\Controller\ConfUser\Controller();
                         $content = $controllerCU->execute();
                         break;
+                    # Fächerverwaltung
                     case "confsubject":
                         $controllerCS = new \DJP\Controller\ConfSubject\Controller();
                         $content = $controllerCS->execute();
                         break;
+                    # Lernferldverwaltung
                     case "conflfield":
                         $controllerCL = new \DJP\Controller\ConfLfield\Controller();
                         $content = $controllerCL->execute();
                         break;
+                    # Bildungsgangverwaltung
 					case "confeducation":
 						$controllerCE = new \DJP\Controller\ConfEducation\Controller();
 						$content = $controllerCE->execute();
@@ -46,10 +51,18 @@ class Backend
             }
         }
         else {
+            /**
+             * /F70/
+             * 
+             * Pruefung der Benutzerinformationen
+             */
             if ($request->getInt("sent")) {
                 $pass = trim(md5($request->getAlnum('password')));
                 $auth->login($request->getRaw('email'), $pass);
 
+                # Benutzer_Typ = 3 , entspricht der Admin-Rolle
+                # Benutzer_Typ = 2 , entspricht der Bildungsgangleiter-Rolle
+                # Benutzer_Typ = 1 , entspricht der Vertreter-Rolle
                 if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) > 2) {
                     \DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                 }

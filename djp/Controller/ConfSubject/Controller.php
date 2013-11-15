@@ -4,12 +4,6 @@ namespace DJP\Controller\ConfSubject;
 
 class Controller
 {
-
-    public function __construct()
-    {
-        
-    }
-
     public function execute()
     {
         $auth = \DJP\Services\Registry::getInstance()->getEntry("auth");
@@ -19,6 +13,11 @@ class Controller
         $queryHandler = new \DJP\Model\Backend\ConfSubject\DataHandler\QueryHandler();
         $commandHandler = new \DJP\Model\Backend\ConfSubject\DataHandler\CommandHandler();
         
+        /**
+         * /F190/
+         * 
+         * Ein bestehendes Fach bearbeiten.
+         */
         if($request->getAlnum("task") == "edit") {
             if($request->getInt("sent")) {
                 $array = $request->getPostArray();
@@ -41,6 +40,9 @@ class Controller
                 $view = new \DJP\View\ConfSubjectEdit();
                 $content = $view->render($queryHandler->getSubjectById($request->getInt("id")), true, false);
 			}
+        /**
+         * Neues Fach anlegen.
+         */
         } elseif ($request->getAlnum("task") == "add") {
 			if($request->getInt("sent")) {
 				$array = $request->getPostArray();
@@ -65,6 +67,11 @@ class Controller
 				$view = new \DJP\View\ConfSubjectEdit();
 				$content = $view->render();
 			}
+        /**
+         * /F190/
+         * 
+         * Ein bestehendes Fach entfernen.
+         */
 		} elseif ($request->getAlnum("task") == "delete") {
 			$commandHandler->deleteSubjectById($request->getInt("id"));
             \DJP\Services\Page::reload($config["url"]["client"]["admin"] . "?cmd=confsubject&response=6");
@@ -78,4 +85,3 @@ class Controller
     }
 
 }
-

@@ -4,12 +4,6 @@ namespace DJP\Controller\ConfLfield;
 
 class Controller
 {
-
-    public function __construct()
-    {
-        
-    }
-
     public function execute()
     {
         $auth = \DJP\Services\Registry::getInstance()->getEntry("auth");
@@ -19,6 +13,11 @@ class Controller
         $queryHandler = new \DJP\Model\Backend\ConfLfield\DataHandler\QueryHandler();
         $commandHandler = new \DJP\Model\Backend\ConfLfield\DataHandler\CommandHandler();
         
+        /**
+         * /F130/
+         * 
+         * Bestehendes Lernfeld bearbeiten.
+         */
         if($request->getAlnum("task") == "edit") {
             if($request->getInt("sent")) {
                 $array = $request->getPostArray();
@@ -41,6 +40,11 @@ class Controller
                 $view = new \DJP\View\ConfLfieldEdit();
                 $content = $view->render($queryHandler->getLfieldById($request->getInt("id")), true, false);
 			}
+        /**
+         * /F80/
+         * 
+         * Neues Lernfeld anlegen.
+         */
         } elseif ($request->getAlnum("task") == "add") {
 			if($request->getInt("sent")) {
 				$array = $request->getPostArray();
@@ -65,6 +69,11 @@ class Controller
 				$view = new \DJP\View\ConfLfieldEdit();
 				$content = $view->render();
 			}
+        /**
+         * /F130/
+         * 
+         * Bestehendes Lernfeld entfernen.
+         */
 		} elseif ($request->getAlnum("task") == "delete") {
 			$commandHandler->deleteLfieldById($request->getInt("id"));
             \DJP\Services\Page::reload($config["url"]["client"]["admin"] . "?cmd=conflfield&response=6");
@@ -78,4 +87,3 @@ class Controller
     }
 
 }
-
