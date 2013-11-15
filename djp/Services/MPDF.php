@@ -1,13 +1,5 @@
 <?php
-
-/**
- * Helfer Object um MPDF anzusrpechen.
- * 
- * @author Michael Mandt <michael.mandt@logic-works.de>
- * @package LWEva
- */
-
-namespace LWEva\services;
+namespace DJP\Services;
 
 require_once dirname(__FILE__).'/../library/MPDF57/mpdf.php';
 
