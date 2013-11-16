@@ -11,7 +11,7 @@
 	
 }
 
-.modalerDialogNeuerBemutzer{
+.modalerDialogBenutzer{
 	width:400px;
 	Border:2px solid rgb(8,75,138);
 	
@@ -23,7 +23,7 @@
 	
 }
 
-#modalerDialogLernfeld{
+.modalerDialogLernfeld{
 	width:500px;
 	Border:2px solid rgb(8,75,138);
 	

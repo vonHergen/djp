@@ -11,17 +11,27 @@
             
         </div>
         <?php endif; ?>
-        <form action="<?php echo $this->actionUrl; ?>" method="post">
-            Bildungsgang <?php echo $this->cmd; ?> <br><br>
-
-            K&uuml;rzel:
-            <input name="name" type="Text" value="<?php if(isset($this->education)) echo $this->education["Name"]; ?>"/><br>
-
-            Beschreibung:
-            <textarea name="beschreibung"><?php if(isset($this->education)) echo $this->education["Beschreibung"]; ?></textarea><br>
-
-            <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
-            <input type="hidden" name="sent" value="1">
-        </form>
+		<div class="modalerDialogBildungsgangAnlegen">
+			<div class="ueberschrift">
+				Bildungsgang <?php echo $this->cmd; ?>
+			</div>
+			<form action="<?php echo $this->actionUrl; ?>" method="post">
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">K&uuml;rzel:<br/> <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->education)) echo $this->education["Name"]; ?>"/><br></div>
+				</div> <!--  Ende Zeile 1 -->	
+				<div style="clear:both"> </div>
+				
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">Beschreibung:<br/> <textarea name="beschreibung" style="width:380px;height:250px" type="Text"><?php if(isset($this->education)) echo $this->education["Beschreibung"]; ?></textarea></div>
+				</div>
+				
+				<div style="float:right;margin-right:20px;margin-top:20px;">
+					<input class="inputbutton" type="submit" value="<?php echo $this->cmd; ?>">
+					<input class="inputbutton" type="button" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confeducation"; ?>';">
+					<input type="hidden" name="sent" value="1">
+				</div>
+				<div style="clear:both"> </div>
+			</form>
+		</div> <!--  Ende Modaler Dialog -->
     </body> 
 </html>

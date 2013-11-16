@@ -16,42 +16,38 @@
             
         </div>
         <?php endif; ?>
+		<div class="modalerDialogBenutzer">
+			<div class="ueberschrift">
+				Benutzer <?php echo $this->cmd; ?> <br><br>
+			</div>
         <form action="<?php echo $this->actionUrl; ?>" method="post">
-            Benutzer <?php echo $this->cmd; ?> <br><br>
-
-            Vorname:
-            <input name="vorname" type="Text" value="<?php if(isset($this->user)) echo $this->user["Vorname"]; ?>"/><br>
-
-            Nachname:
-            <input name="nachname" type="Text" value="<?php if(isset($this->user)) echo $this->user["Nachname"]; ?>"/><br>
-
-            E-Mail:
-            <input name="email" type="Text" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>" /><br>
-            
-            Passwort:
-            <input name="password" type="password" value="" /><br>
-            
-            Passwort WDHL:
-            <input name="password_repeat" type="password" value="" /><br>
-            
-            Benutzerrolle:
-            <select name="role">
-                <?php foreach ($this->roles as $role): ?>
-                    <option value="<?php echo $role["Typ_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Benutzer_Typ"]) && $role["Typ_Id"] == $this->user["Benutzer_Typ"]): ?> selected="selected" <?php endif; ?>><?php echo $role["Name"]; ?></option>
-                <?php endforeach; ?>
-            </select><br><br>
-            
-            Bildungsgang:
-            <select name="education">
-                <?php foreach ($this->educationList as $education): ?>
-                    <option value="<?php echo $education["Bildungsgang_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Bildungsgang_Id"]) && $education["Bildungsgang_Id"] == $this->user["Bildungsgang_Id"]): ?> selected="selected" <?php endif; ?>><?php echo $education["Name"]; ?></option>
-                <?php endforeach; ?>
-            </select><br><br>
-
-            <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
-            <input type="hidden" name="sent" value="1">
-            <input type="hidden" name="oldEmail" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>">
-        </form>
-            <input type="button" value="zur&uuml;ck" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confuser"; ?>';">
+			<div class="zeile" id="zeile1"> 
+				<div class="floatLeft"><div style="width:70px">Vorname:</div><input name="vorname" style="width:200px" type="Text" value="<?php if(isset($this->user)) echo $this->user["Vorname"]; ?>"/><br></div>
+				<div class="floatLeft"><div style="width:70px">Nachname:</div> <input name="nachname" style="width:200px" type="Text" value="<?php if(isset($this->user)) echo $this->user["Nachname"]; ?>"/><br></div>
+				<div class="floatLeft"><div style="width:70px">E-Mail:</div> <input name="email" style="width:200px" type="Text" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>"/><br></div>
+				<div class="floatLeft"><div style="width:70px">Bildungsgang:</div><select name="education" style="width:200px">
+						<?php foreach ($this->educationList as $education): ?>
+							<option value="<?php echo $education["Bildungsgang_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Bildungsgang_Id"]) && $education["Bildungsgang_Id"] == $this->user["Bildungsgang_Id"]): ?> selected="selected" <?php endif; ?>><?php echo $education["Name"]; ?></option>
+						<?php endforeach; ?>
+					</select><br></div>
+				<div class="floatLeft"><div style="width:70px">Benutzerrolle:</div><select name="role" style="width:200px">
+						<?php foreach ($this->roles as $role): ?>
+							<option value="<?php echo $role["Typ_Id"]; ?>" <?php if(isset($this->user) && isset($this->user["Benutzer_Typ"]) && $role["Typ_Id"] == $this->user["Benutzer_Typ"]): ?> selected="selected" <?php endif; ?>><?php echo $role["Name"]; ?></option>
+						<?php endforeach; ?>
+					</select><br></div>
+				<div class="floatLeft"><div style="width:70px">Passwort:</div><input name="password" style="width:200px" type="password" value="" /><br></div>
+				<div class="floatLeft"><div style="width:70px">Passwort Wiederholung:</div><input name="password_repeat" style="width:200px" type="password" value="" /><br></div>
+          	</div> <!--  Ende Zeile 1 -->	
+	<div style="clear:both"> </div>
+<div style="float:right;margin-right:20px;margin-top:20px;">
+	<input type="hidden" name="sent" value="1">
+	<input type="hidden" name="oldEmail" value="<?php if(isset($this->user)) echo $this->user["Email"]; ?>">
+	<input type="submit" class="inputbutton"  value="<?php echo $this->cmd; ?>" />
+	<input type="button" class="inputbutton" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confuser"; ?>';">
+</div>
+	<div style="clear:both"> </div>
+</form>
+ 
+</div> <!--  Ende Modaler Dialog -->
     </body> 
 </html>

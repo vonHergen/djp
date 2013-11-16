@@ -12,41 +12,30 @@
         </div>
         <?php endif; ?>
 		<div class="modalerDialogFach">
-	<div class="ueberschrift">
-		Fach <?php echo $this->cmd; ?>
-	</div>
+			<div class="ueberschrift">
+				Fach <?php echo $this->cmd; ?>
+			</div>
 
 
-		<form action="<?php echo $this->actionUrl; ?>" method="post">
-			<div class="zeile" id="zeile1"> 
-				<div class="floatLeft">K&uuml;rzel:
-					<input name="kuerzel" type="Text" style="width:50px" value="<?php if(isset($this->subject)) echo $this->subject["Kuerzel"]; ?>"/><br>
-				</div><br/>
-				<br/>
-				<div class="floatLeft">Name: <input name="name" type="Text" value="<?php if(isset($this->subject)) echo $this->subject["Name"]; ?>"/><br></div>
-				
-			</div> <!--  Ende Zeile 1 -->	
-			<div style="clear:both"> </div>
-		 
-		<div style="float:right;margin-right:20px;margin-top:20px;">
-			<input class="inputbutton" type="submit" value="<?php echo $this->cmd; ?>" />
-			<input type="button" class="inputbutton" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confsubject"; ?>';">
-			<input type="hidden" name="sent" value="1">
-		</div>
-			<div style="clear:both"> </div>
-		</form>
+			<form action="<?php echo $this->actionUrl; ?>" method="post">
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">K&uuml;rzel:
+						<input name="kuerzel" type="Text" style="width:50px" value="<?php if(isset($this->subject)) echo $this->subject["Kuerzel"]; ?>"/><br>
+					</div><br/>
+					<br/>
+					<div class="floatLeft">Name: <input name="name" type="Text" value="<?php if(isset($this->subject)) echo $this->subject["Name"]; ?>"/><br></div>
+					
+				</div> <!--  Ende Zeile 1 -->	
+				<div style="clear:both"> </div>
+			 
+			<div style="float:right;margin-right:20px;margin-top:20px;">
+				<input class="inputbutton" type="submit" value="<?php echo $this->cmd; ?>" />
+				<input type="button" class="inputbutton" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confsubject"; ?>';">
+				<input type="hidden" name="sent" value="1">
+			</div>
+				<div style="clear:both"> </div>
+			</form>
  
-</div> <!--  Ende Modaler Dialog -->
-        
-         <!--    // <br><br>
-
-            
-
-            // Bezeichnung:
-            // <textarea name="name"><?php if(isset($this->subject)) echo $this->subject["Name"]; ?></textarea><br>
-
-            // <input type="submit" value="<?php echo $this->cmd; ?>" /><br>
-            // <input type="hidden" name="sent" value="1">
-        </form> -->
+		</div> <!--  Ende Modaler Dialog -->
     </body> 
 </html>
