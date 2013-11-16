@@ -16,7 +16,7 @@
             <td><?php echo $user["Name"]; ?></td>
 			<td><?php echo $user["Bildungsgang"]; ?></td>
             <td><?php echo $user["Email"]; ?></td>
-            <td><a href="<?php echo $this->adminUrl."?cmd=confuser&task=edit&id=".$user["Benutzer_Id"]; ?>">Bearbeiten</a></td>
+            <td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confuser&task=edit&id=".$user["Benutzer_Id"]; ?>">Bearbeiten</a></td>
             <td><a href="<?php echo $this->adminUrl."?cmd=confuser&task=delete&id=".$user["Benutzer_Id"]; ?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
         </tr>
     <?php endforeach; ?>

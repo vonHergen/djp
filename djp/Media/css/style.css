@@ -270,3 +270,27 @@ textarea {
 	background-color:#ccc;
 	margin-top:2px;
 }
+
+.edit {
+	/*padding: 2px 5px;*/
+	margin: 5px 2px;
+	/*background-color:#0080FF;*/
+	color: #000;
+	cursor: pointer;
+	border-left: 2px solid #eee;
+	border-top: 2px solid #eee;
+	border-right: 2px solid #aaa;
+	border-bottom: 2px solid #aaa;
+	text-decoration: none;
+}
+
+.edit:hover {
+	/*padding: 2px 5px;*/
+	/*background-color:#0080FF;*/
+	cursor: pointer;
+	border-left: 2px solid #aaa;
+	border-top: 2px solid #aaa;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #eee;
+	text-decoration: underline;
+}
