@@ -21,7 +21,7 @@ class QueryHandler
      */
     public function getUserList()
     {
-        $this->db->setStatement("SELECT * FROM t:benutzer b, t:benutzer_typen bt WHERE b.Benutzer_Typ = bt.Typ_id ORDER BY Nachname ASC ");
+        $this->db->setStatement("SELECT b.*, bt.*, bg.name AS Bildungsgang FROM t:benutzer b INNER JOIN t:benutzer_typen bt ON b.Benutzer_Typ = bt.Typ_id INNER JOIN t:bildungsgaenge bg ON b.Bildungsgang_Id = bg.Bildungsgang_Id ORDER BY b.Nachname ASC ");
         return $this->db->pselect();
     }
     
