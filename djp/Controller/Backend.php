@@ -46,7 +46,8 @@ class Backend
 						$auth->logout();
 						\DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                     default:
-                        $content = "Willkommen im Administrationsbereich der didaktischen Jahresplanung";
+                        $controllerCI = new \DJP\Controller\ConfIndex\Controller();
+						$content = $controllerCI->execute();
                         break;
                 }
 
