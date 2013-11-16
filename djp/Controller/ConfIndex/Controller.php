@@ -4,7 +4,7 @@ namespace DJP\Controller\ConfIndex;
 
 class Controller
 {
-    public function execute()
+    public function execute($error = false)
     {
         $auth = \DJP\Services\Registry::getInstance()->getEntry("auth");
         $response = \DJP\Services\Registry::getInstance()->getEntry("response");
@@ -84,7 +84,7 @@ class Controller
             // $content = $view->render($lfieldList);
         // } 
 		$view = new \DJP\View\AdminIndex();
-		$content = $view->render();
+		$content = $view->render($error);
         return $content;
     }
 

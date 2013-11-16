@@ -7,7 +7,7 @@
 				Benutzer <?php echo $this->cmd; ?>
 			</div>
 			<?php if(is_array($this->errors)): ?>
-			<div class="fehlerfall" style =" color: darkred">
+			<div class="failed">
 				<?php if(isset($this->errors["nachname"][1])): ?><p>Nachname ist ein Pflichtfeld</p><?php endif; ?>
 				<?php if(isset($this->errors["nachname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
 				<?php if(isset($this->errors["vorname"][1])): ?><p>Vorname ist ein Pflichtfeld</p><?php endif; ?>

@@ -15,6 +15,7 @@ class Admin
         $view->response = $response;
         $view->content = $content;
 		$view->user = $user;
+		$view->roles = $config["roles"];
         $view->adminUrl = $config["url"]["client"]["admin"];
         $view->jQueryMin = $config["url"]["media"]. "js/jquery/jquery.1.9.1.min.js";
 		$view->css = $config["url"]["media"]."css";

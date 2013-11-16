@@ -2,19 +2,20 @@
     <head>
     </head>
     <body>
-        <?php if(is_array($this->errors)): ?>
-        <div style =" color: darkred">
-            <?php if(isset($this->errors["name"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["name"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["beschreibung"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["beschreibung"][2])): ?><p>Beschreibung darf max. aus 3000 Zeichen bestehen</p><?php endif; ?>
-            
-        </div>
-        <?php endif; ?>
+        
 		<div class="modalerDialogBildungsgangAnlegen">
 			<div class="ueberschrift">
 				Bildungsgang <?php echo $this->cmd; ?>
 			</div>
+			<?php if(is_array($this->errors)): ?>
+			<div class="failed">
+				<?php if(isset($this->errors["name"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["name"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["beschreibung"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["beschreibung"][2])): ?><p>Beschreibung darf max. aus 3000 Zeichen bestehen</p><?php endif; ?>
+				
+			</div>
+			<?php endif; ?>
 			<form action="<?php echo $this->actionUrl; ?>" method="post">
 				<div class="zeile" id="zeile1"> 
 					<div class="floatLeft">K&uuml;rzel:<br/> <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->education)) echo $this->education["Name"]; ?>"/><br></div>

@@ -2,20 +2,20 @@
     <head>
     </head>
     <body>
-        <?php if(is_array($this->errors)): ?>
-        <div style =" color: darkred">
-            <?php if(isset($this->errors["kuerzel"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["kuerzel"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["name"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["name"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            
-        </div>
-        <?php endif; ?>
 		<div class="modalerDialogFach">
 			<div class="ueberschrift">
 				Fach <?php echo $this->cmd; ?>
 			</div>
 
+			<?php if(is_array($this->errors)): ?>
+			<div class="failed">
+				<?php if(isset($this->errors["kuerzel"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["kuerzel"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["name"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["name"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				
+			</div>
+			<?php endif; ?>
 
 			<form action="<?php echo $this->actionUrl; ?>" method="post">
 				<div class="zeile" id="zeile1"> 

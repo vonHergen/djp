@@ -2,38 +2,38 @@
     <head>
     </head>
     <body>
-        <?php if(is_array($this->errors)): ?>
-        <div style =" color: darkred">
-            <?php if(isset($this->errors["name"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["name"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["beschreibung"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["beschreibung"][2])): ?><p>Beschreibung darf max. aus 3000 Zeichen bestehen</p><?php endif; ?>
-            
-        </div>
-        <?php endif; ?>
+        
 		<div class="modalerDialogLernfeld">
 			<div class="ueberschrift">
 				Lernfeld <?php echo $this->cmd; ?>
 			</div>
-        <form action="<?php echo $this->actionUrl; ?>" method="post">
-            <div class="zeile" id="zeile1"> 
-				<div class="floatLeft">K&uuml;rzel: <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->lfield)) echo $this->lfield["Name"]; ?>"/><br></div>
-			</div> <!--  Ende Zeile 1 -->	
-			<div style="clear:both"> </div>
-			
-			<div class="zeile" id="zeile1"> 
-				<div class="floatLeft">Beschreibung:<br/> <textarea name="beschreibung" style="width:380px;height:250px" type="Text"><?php if(isset($this->lfield)) echo $this->lfield["Beschreibung"]; ?></textarea></div>
+			<?php if(is_array($this->errors)): ?>
+			<div class="failed">
+				<?php if(isset($this->errors["name"][1])): ?><p>K&uuml;rzel ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["name"][2])): ?><p>K&uuml;rzel darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["beschreibung"][1])): ?><p>Beschreibung ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["beschreibung"][2])): ?><p>Beschreibung darf max. aus 3000 Zeichen bestehen</p><?php endif; ?>
+				
 			</div>
-			
-			<div style="float:right;margin-right:20px;margin-top:20px;">
-				<input type="submit" class="inputbutton" value="<?php echo $this->cmd; ?>" />
-				<input class="inputbutton" type="button" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=conflfield"; ?>';">
-				<input type="hidden" name="sent" value="1">
-			</div>
+			<?php endif; ?>
+			<form action="<?php echo $this->actionUrl; ?>" method="post">
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">K&uuml;rzel: <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->lfield)) echo $this->lfield["Name"]; ?>"/><br></div>
+				</div> <!--  Ende Zeile 1 -->	
+				<div style="clear:both"> </div>
+				
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">Beschreibung:<br/> <textarea name="beschreibung" style="width:380px;height:250px" type="Text"><?php if(isset($this->lfield)) echo $this->lfield["Beschreibung"]; ?></textarea></div>
+				</div>
+				
+				<div style="float:right;margin-right:20px;margin-top:20px;">
+					<input type="submit" class="inputbutton" value="<?php echo $this->cmd; ?>" />
+					<input class="inputbutton" type="button" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=conflfield"; ?>';">
+					<input type="hidden" name="sent" value="1">
+				</div>
 				<div style="clear:both"> </div>
 			</form>
 			 
 			</div> <!--  Ende Modaler Dialog -->
-        </form>
     </body> 
 </html>

@@ -323,5 +323,14 @@ textarea {
 }
 
 .failed {
-	margin-top: 5px;
+	margin: 5px auto;
+	padding: 5px 5px;
+	padding-left: 32px;
+	background-color: #ffaa99;
+	border: 2px solid #ff0000;
+	border-radius: 10px;
+	width: 350px;
+	background-image: url("../images/stop.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
 }

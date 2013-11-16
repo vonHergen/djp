@@ -2,17 +2,19 @@
     <head>
     </head>
     <body>
-        <?php if(is_array($this->errors)): ?>
-        <div style =" color: darkred">
-            <?php if(isset($this->errors["name"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["name"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            
-        </div>
-        <?php endif; ?>
+        
 		<div class="modalerDialogBildungsgangAnlegen">
 			<div class="ueberschrift">
 				Benutzerrolle <?php echo $this->cmd; ?>
 			</div>
+			
+			<?php if(is_array($this->errors)): ?>
+			<div class="failed">
+				<?php if(isset($this->errors["name"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["name"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				
+			</div>
+			<?php endif; ?>
 			<form action="<?php echo $this->actionUrl; ?>" method="post">
 				<div class="zeile" id="zeile1"> 
 					<div class="floatLeft">Name:<br/> <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->role)) echo $this->role["Name"]; ?>"/><br></div>

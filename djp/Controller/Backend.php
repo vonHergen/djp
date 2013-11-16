@@ -14,33 +14,59 @@ class Backend
         $response = \DJP\Services\Registry::getInstance()->getEntry("response");
         $request = \DJP\Services\Registry::getInstance()->getEntry("request");
         $config = \DJP\Services\Registry::getInstance()->getEntry("config");
-
-        if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) > 2) { {
+		$roles = $config["roles"];
+		
+        if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) >= min($roles)) { {
                             
                 switch ($request->getAlnum("cmd")) {
                     # Benutzerverwaltung ( Anlegen, Löschen, Bearbeiten )
                     case "confuser":
-                        $controllerCU = new \DJP\Controller\ConfUser\Controller();
-                        $content = $controllerCU->execute();
+						if(intval($auth->getUserdata("Benutzer_Typ")) >= $roles["confuser"]) {
+							$controllerCU = new \DJP\Controller\ConfUser\Controller();
+							$content = $controllerCU->execute();
+						} else {
+							$controllerCI = new \DJP\Controller\ConfIndex\Controller();
+							$content = $controllerCI->execute(true);
+						}
                         break;
                     # Fächerverwaltung
                     case "confsubject":
-                        $controllerCS = new \DJP\Controller\ConfSubject\Controller();
-                        $content = $controllerCS->execute();
+						if(intval($auth->getUserdata("Benutzer_Typ")) >= $roles["confsubject"]) {
+							$controllerCS = new \DJP\Controller\ConfSubject\Controller();
+							$content = $controllerCS->execute();
+						} else {
+							$controllerCI = new \DJP\Controller\ConfIndex\Controller();
+							$content = $controllerCI->execute(true);
+						}
                         break;
                     # Lernferldverwaltung
                     case "conflfield":
-                        $controllerCL = new \DJP\Controller\ConfLfield\Controller();
-                        $content = $controllerCL->execute();
+						if(intval($auth->getUserdata("Benutzer_Typ")) >= $roles["conflfield"]) {
+							$controllerCL = new \DJP\Controller\ConfLfield\Controller();
+							$content = $controllerCL->execute();
+						} else {
+							$controllerCI = new \DJP\Controller\ConfIndex\Controller();
+							$content = $controllerCI->execute(true);
+						}
                         break;
                     # Bildungsgangverwaltung
 					case "confeducation":
-						$controllerCE = new \DJP\Controller\ConfEducation\Controller();
-						$content = $controllerCE->execute();
+						if(intval($auth->getUserdata("Benutzer_Typ")) >= $roles["confeducation"]) {
+							$controllerCE = new \DJP\Controller\ConfEducation\Controller();
+							$content = $controllerCE->execute();
+						} else {
+							$controllerCI = new \DJP\Controller\ConfIndex\Controller();
+							$content = $controllerCI->execute(true);
+						}
 						break;
 					case "confrole": 
-						$controllerCR = new \DJP\Controller\ConfRole\Controller();
-						$content = $controllerCR->execute();
+						if(intval($auth->getUserdata("Benutzer_Typ")) >= $roles["confrole"]) {
+							$controllerCR = new \DJP\Controller\ConfRole\Controller();
+							$content = $controllerCR->execute();
+						} else {
+							$controllerCI = new \DJP\Controller\ConfIndex\Controller();
+							$content = $controllerCI->execute(true);
+						}
 						break;
 					case "logout":
 						$auth->logout();
@@ -52,7 +78,8 @@ class Backend
                 }
 
                 $view = new \DJP\View\Admin();
-				$user = $auth->getUserdata("Vorname") . " " . $auth->getUserdata("Nachname");
+				$user["name"] = $auth->getUserdata("Vorname") . " " . $auth->getUserdata("Nachname");
+				$user["role"] = $auth->getUserdata("Benutzer_Typ");
                 $response->setOutputByKey("DJP", $view->render($content, $user ,$request->getInt("response")));
             }
         }
@@ -69,7 +96,7 @@ class Backend
                 # Benutzer_Typ = 3 , entspricht der Admin-Rolle
                 # Benutzer_Typ = 2 , entspricht der Bildungsgangleiter-Rolle
                 # Benutzer_Typ = 1 , entspricht der Vertreter-Rolle
-                if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) > 2) {
+                if ($auth->isLoggedIn() && intval($auth->getUserdata("Benutzer_Typ")) >= min($roles)) {
                     \DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                 }
                 $error = true;
