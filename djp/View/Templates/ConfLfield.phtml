@@ -11,8 +11,8 @@
 		<tr>
 			<td><?php echo $lfield["Name"];?></td>
 			<td><?php echo $lfield["Beschreibung"];?></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=conflfield&task=edit&id=".$lfield["Lernfeld_Id"];?>">Bearbeiten</a></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=conflfield&task=delete&id=".$lfield["Lernfeld_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=conflfield&task=edit&id=".$lfield["Lernfeld_Id"];?>">Bearbeiten</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=conflfield&task=delete&id=".$lfield["Lernfeld_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
 		</tr>
         <?php endforeach;?>
 	</tbody></table>

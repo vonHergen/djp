@@ -11,8 +11,8 @@
 		<tr>
 			<td><?php echo $subject["Kuerzel"];?></td>
 			<td><?php echo $subject["Name"];?></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confsubject&task=edit&id=".$subject["Fach_Id"];?>">Bearbeiten</a></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confsubject&task=delete&id=".$subject["Fach_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confsubject&task=edit&id=".$subject["Fach_Id"];?>">Bearbeiten</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confsubject&task=delete&id=".$subject["Fach_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
 		</tr>
         <?php endforeach;?>
 	</tbody></table>

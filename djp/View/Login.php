@@ -11,6 +11,7 @@ class Login
         $config = \DJP\Services\Registry::getInstance()->getEntry("config");
         $view->actionUrl = $config["url"]["client"]["admin"];
         $view->error = $error;
+		$view->css = $config["url"]["media"]."css";
         
         return $view->render();
     }

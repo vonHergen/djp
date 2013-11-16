@@ -9,8 +9,8 @@
         <?php foreach($this->roleList as $role):?>
 		<tr>
 			<td><?php echo $role["Name"];?></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confrole&task=edit&id=".$role["Typ_Id"];?>">Bearbeiten</a></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confrole&task=delete&id=".$role["Typ_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confrole&task=edit&id=".$role["Typ_Id"];?>">Bearbeiten</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confrole&task=delete&id=".$role["Typ_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
 		</tr>
         <?php endforeach;?>
 	</tbody></table>

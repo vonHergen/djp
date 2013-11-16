@@ -249,6 +249,7 @@ textarea {
 	position:absolute;
 	margin-left:140px;
 	display:block;
+	margin-top: 10px;
 }
 
 #menu{
@@ -272,25 +273,55 @@ textarea {
 }
 
 .edit {
-	/*padding: 2px 5px;*/
-	margin: 5px 2px;
-	/*background-color:#0080FF;*/
-	color: #000;
+	color: rgb(8,75,138);
 	cursor: pointer;
-	border-left: 2px solid #eee;
-	border-top: 2px solid #eee;
-	border-right: 2px solid #aaa;
-	border-bottom: 2px solid #aaa;
 	text-decoration: none;
 }
 
 .edit:hover {
-	/*padding: 2px 5px;*/
-	/*background-color:#0080FF;*/
-	cursor: pointer;
-	border-left: 2px solid #aaa;
-	border-top: 2px solid #aaa;
-	border-right: 2px solid #eee;
-	border-bottom: 2px solid #eee;
 	text-decoration: underline;
+}
+
+#header {
+	text-align: center;
+	color: rgb(8,75,138);
+	font-weight: bold;
+	font-size: 150%;
+	padding: 5px;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	padding: 5px;
+	background-color: #fff;
+	text-align: right;
+	font-size: 10px;
+	height: 20px;
+	width: 100%;
+	opacity: 0.5;
+}
+
+#footer_content {
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+}
+
+.center {
+	text-align: center;
+}
+
+#login {
+	text-align: left;
+	margin: 5px auto;
+	width: 250px;
+}
+
+#login div {
+	padding: 2px;
+}
+
+.failed {
+	margin-top: 5px;
 }

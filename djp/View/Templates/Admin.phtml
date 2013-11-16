@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Administration</title>
+        <title>DJP - Administration</title>
         <script type="text/javascript" src="<?php echo $this->jQueryMin; ?>"></script>
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/style.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/modal.css" />
@@ -49,7 +49,7 @@
 	
 	<div class="page">	
 		<!--  Page navigation -->
-		<div id="header"> </div>
+		<div id="header"> didaktische Jahresplanung</div>
 		
 		<div id="pagenavigation">
 			<div id="navi_top">
@@ -70,11 +70,11 @@
 		<div id="content"> 		
 			<div id="siteMenu">
 				<ul class="menueliste">
-					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confuser"; ?>">Benutzer</a></li>
-					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confeducation"; ?>">Bildungsg&auml;nge</a></li>
-					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confrole"; ?>">Benutzerrollen</a></li>
-					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confsubject";?>">F&auml;cher</a></li>
-					<li class="buttonMenu"> <a href="<?php echo $this->adminUrl . "?cmd=conflfield"; ?>">Lernfelder </a></li>
+					<li class="buttonMenu" ><a class="edit" href="<?php echo $this->adminUrl . "?cmd=confuser"; ?>">Benutzer</a></li>
+					<li class="buttonMenu" ><a class="edit" href="<?php echo $this->adminUrl . "?cmd=confeducation"; ?>">Bildungsg&auml;nge</a></li>
+					<li class="buttonMenu" ><a class="edit" href="<?php echo $this->adminUrl . "?cmd=confrole"; ?>">Benutzerrollen</a></li>
+					<li class="buttonMenu" ><a class="edit" href="<?php echo $this->adminUrl . "?cmd=confsubject";?>">F&auml;cher</a></li>
+					<li class="buttonMenu"> <a class="edit" href="<?php echo $this->adminUrl . "?cmd=conflfield"; ?>">Lernfelder </a></li>
 				</ul>
 			 </div>
 			 
@@ -86,7 +86,7 @@
 
 	</div> <!--  Content -->
 	<div id="footer">
-	
+		<div id="footer_content">&copy; 2013 <?php if(date("Y") != "2013"): echo "- ". date("Y"); endif;?> Rene Puhlmann, Dominik Lapp, Michael Mandt, Jonas Hergenhahn</div>
 	</div> 
 </div><!-- page -->
     </body>

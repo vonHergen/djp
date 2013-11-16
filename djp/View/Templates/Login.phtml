@@ -1,19 +1,42 @@
 <html>
     <head>
+		<title>DJP - Login</title>
+        <script type="text/javascript" src="<?php echo $this->jQueryMin; ?>"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/style.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/modal.css" />
     </head>
     <body>
-        <?php if($this->error): ?>
-            <p style="color: darkred;">INVALID</p>
-        <?php endif; ?>
-        <form action="<?php $this->actionUrl; ?>" method="post">
-            E-Mail:
-            <input name="email" type="Text"/><br>
-
-            Passwort:
-            <input name="password" type="password"/><br>
-
-            <input name="login" type="submit" value="Login" /><br>
-            <input type="hidden" name="sent" value ="1">
-        </form>
+        <div class="page">
+			<div id="header">
+				didaktische Jahresplanung
+			</div>
+			<div id="pagenavigation">
+			<div id="navi_top">
+				Anmeldung
+			</div>
+			<div class="clear_both"></div>
+			<div id="content">
+				<div class="center">
+					<?php if($this->error): ?>
+						<div class="failed" style="color: darkred;">Benutzername und/oder Passwort falsch</div>
+					<?php endif; ?>
+					<div id="login">
+						
+						<form action="<?php $this->actionUrl; ?>" method="post">
+							<div class="floatLeft"><div style="width:70px">E-Mail:</div>
+							<input name="email" style="width:200px" type="Text"/></div>
+							<div class="floatLeft"><div style="width:70px">Passwort:</div>
+							<input name="password" style="width:200px" type="password"/></div>
+							<div class="clear_both"></div>
+							<div class="floatLeft"><input name="login" class="inputbutton" type="submit" value="Login" /></div>
+							<input type="hidden" name="sent" value ="1">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="footer_content">&copy; 2013 <?php if(date("Y") != "2013"): echo "- ". date("Y"); endif;?> Rene Puhlmann, Dominik Lapp, Michael Mandt, Jonas Hergenhahn</div>
+			</div> 
+		</div>
     </body> 
 </html>

@@ -2,24 +2,24 @@
     <head>
     </head>
     <body>
-        <?php if(is_array($this->errors)): ?>
-        <div style =" color: darkred">
-            <?php if(isset($this->errors["nachname"][1])): ?><p>Nachname ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["nachname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["vorname"][1])): ?><p>Vorname ist ein Pflichtfeld</p><?php endif; ?>
-            <?php if(isset($this->errors["vorname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["email"][3])): ?><p>Es wurde keine korrekte E-Mail angegeben</p><?php endif; ?>
-            <?php if(isset($this->errors["email"][7])): ?><p>Die angegebene E-Mail existiert bereits</p><?php endif; ?>
-            <?php if(isset($this->errors["password"][6])): ?><p>Das Passwort muss aus mindestens 5 Zeichen bestehen</p><?php endif; ?>
-            <?php if(isset($this->errors["password"][5])): ?><p>Passwort und Passwort WDHL m&uuml;ssen identisch sein</p><?php endif; ?>
-            <?php if(isset($this->errors["password"][1])): ?><p>Passwort ist ein Pflichtfeld</p><?php endif; ?>
-            
-        </div>
-        <?php endif; ?>
 		<div class="modalerDialogBenutzer">
 			<div class="ueberschrift">
-				Benutzer <?php echo $this->cmd; ?> <br><br>
+				Benutzer <?php echo $this->cmd; ?>
 			</div>
+			<?php if(is_array($this->errors)): ?>
+			<div class="fehlerfall" style =" color: darkred">
+				<?php if(isset($this->errors["nachname"][1])): ?><p>Nachname ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["nachname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["vorname"][1])): ?><p>Vorname ist ein Pflichtfeld</p><?php endif; ?>
+				<?php if(isset($this->errors["vorname"][2])): ?><p>Vorname darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["email"][3])): ?><p>Es wurde keine korrekte E-Mail angegeben</p><?php endif; ?>
+				<?php if(isset($this->errors["email"][7])): ?><p>Die angegebene E-Mail existiert bereits</p><?php endif; ?>
+				<?php if(isset($this->errors["password"][6])): ?><p>Das Passwort muss aus mindestens 5 Zeichen bestehen</p><?php endif; ?>
+				<?php if(isset($this->errors["password"][5])): ?><p>Passwort und Passwort Wiederholung m&uuml;ssen identisch sein</p><?php endif; ?>
+				<?php if(isset($this->errors["password"][1])): ?><p>Passwort ist ein Pflichtfeld</p><?php endif; ?>
+				
+			</div>
+			<?php endif; ?>
         <form action="<?php echo $this->actionUrl; ?>" method="post">
 			<div class="zeile" id="zeile1"> 
 				<div class="floatLeft"><div style="width:70px">Vorname:</div><input name="vorname" style="width:200px" type="Text" value="<?php if(isset($this->user)) echo $this->user["Vorname"]; ?>"/><br></div>

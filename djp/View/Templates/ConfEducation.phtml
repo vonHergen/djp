@@ -11,8 +11,8 @@
 		<tr>
 			<td><?php echo $education["Name"];?></td>
 			<td><?php echo $education["Beschreibung"];?></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confeducation&task=edit&id=".$education["Bildungsgang_Id"];?>">Bearbeiten</a></td>
-			<td><a href="<?php echo $this->adminUrl."?cmd=confeducation&task=delete&id=".$education["Bildungsgang_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confeducation&task=edit&id=".$education["Bildungsgang_Id"];?>">Bearbeiten</a></td>
+			<td><a class="edit" href="<?php echo $this->adminUrl."?cmd=confeducation&task=delete&id=".$education["Bildungsgang_Id"];?>" onclick="if(confirm('Wirklich l&ouml;schen ?')){return true;} return false;">L&ouml;schen</a></td>
 		</tr>
         <?php endforeach;?>
 	</tbody></table>
