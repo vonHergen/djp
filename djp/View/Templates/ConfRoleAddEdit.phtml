@@ -1,0 +1,31 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <?php if(is_array($this->errors)): ?>
+        <div style =" color: darkred">
+            <?php if(isset($this->errors["name"][1])): ?><p>Name ist ein Pflichtfeld</p><?php endif; ?>
+            <?php if(isset($this->errors["name"][2])): ?><p>Name darf max. aus 255 Zeichen bestehen</p><?php endif; ?>
+            
+        </div>
+        <?php endif; ?>
+		<div class="modalerDialogBildungsgangAnlegen">
+			<div class="ueberschrift">
+				Benutzerrolle <?php echo $this->cmd; ?>
+			</div>
+			<form action="<?php echo $this->actionUrl; ?>" method="post">
+				<div class="zeile" id="zeile1"> 
+					<div class="floatLeft">Name:<br/> <input name="name" style="width:330px" type="Text" value="<?php if(isset($this->role)) echo $this->role["Name"]; ?>"/><br></div>
+				</div> <!--  Ende Zeile 1 -->	
+				<div style="clear:both"> </div>
+				
+				<div style="float:right;margin-right:20px;margin-top:20px;">
+					<input class="inputbutton" type="submit" value="<?php echo $this->cmd; ?>">
+					<input class="inputbutton" type="button" value="Abbrechen" onclick="self.location.href='<?php echo $this->adminUrl . "?cmd=confrole"; ?>';">
+					<input type="hidden" name="sent" value="1">
+				</div>
+				<div style="clear:both"> </div>
+			</form>
+		</div> <!--  Ende Modaler Dialog -->
+    </body> 
+</html>

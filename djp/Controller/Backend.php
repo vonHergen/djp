@@ -38,6 +38,10 @@ class Backend
 						$controllerCE = new \DJP\Controller\ConfEducation\Controller();
 						$content = $controllerCE->execute();
 						break;
+					case "confrole": 
+						$controllerCR = new \DJP\Controller\ConfRole\Controller();
+						$content = $controllerCR->execute();
+						break;
 					case "logout":
 						$auth->logout();
 						\DJP\Services\Page::reload($config["url"]["client"]["admin"]);
