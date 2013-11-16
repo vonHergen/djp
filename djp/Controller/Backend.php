@@ -42,12 +42,13 @@ class Backend
 						$auth->logout();
 						\DJP\Services\Page::reload($config["url"]["client"]["admin"]);
                     default:
-                        $content = false;
+                        $content = "Willkommen im Administrationsbereich der didaktischen Jahresplanung";
                         break;
                 }
 
                 $view = new \DJP\View\Admin();
-                $response->setOutputByKey("DJP", $view->render($content, $request->getInt("response")));
+				$user = $auth->getUserdata("Vorname") . " " . $auth->getUserdata("Nachname");
+                $response->setOutputByKey("DJP", $view->render($content, $user ,$request->getInt("response")));
             }
         }
         else {

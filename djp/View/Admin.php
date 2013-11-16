@@ -4,7 +4,7 @@ namespace DJP\View;
 
 class Admin
 {
-    Public function render($content, $response = false)
+    Public function render($content, $user, $response = false)
     {
         $view = new \lw_view(dirname(__FILE__) . '/Templates/Admin.phtml');
         
@@ -14,8 +14,10 @@ class Admin
         #Verfügung stehen sollen.
         $view->response = $response;
         $view->content = $content;
+		$view->user = $user;
         $view->adminUrl = $config["url"]["client"]["admin"];
         $view->jQueryMin = $config["url"]["media"]. "js/jquery/jquery.1.9.1.min.js";
+		$view->css = $config["url"]["media"]."css";
         
         return $view->render();
     }

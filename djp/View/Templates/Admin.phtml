@@ -3,6 +3,8 @@
     <head>
         <title>Administration</title>
         <script type="text/javascript" src="<?php echo $this->jQueryMin; ?>"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/style.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->css; ?>/modal.css" />
     </head>
     <?php if ($this->response > 0): ?>
         <script>
@@ -40,18 +42,51 @@
             });
         </script>
     <?php endif; ?>
-    <body>
-        <div>
-            <p id="navi_top"><a href="prototyp_v0.1.html">Startseite</a> <a href="administration.html" class="active">Administration</a></p>
-        </div>
-        <div>
-            <p id="navi_top"><a href="<?php echo $this->adminUrl . "?cmd=confuser"; ?>">Benutzer</a> <a href="<?php echo $this->adminUrl . "?cmd=confsubject";?>">F&auml;cher</a> <a href="<?php echo $this->adminUrl . "?cmd=conflfield"; ?>">Lernfelder</a> <a href="<?php echo $this->adminUrl . "?cmd=confeducation"; ?>">Bildungsgang</a></p>
-        </div>
+	
+	
+	
+	<body>
+	
+	<div class="page">	
+		<!--  Page navigation -->
+		<div id="header"> </div>
+		
+		<div id="pagenavigation">
+			<div id="navi_top">
+					<a href="index.html">didaktische Jahresplanung</a> 
+					<a href="<?php echo $this->adminUrl; ?>">Administration</a>
+						 
+			<!-- dynamischer Content angemeldeter User -->	
+					<div style="float:right"> 
+						<span style="margin-right:10px">angemeldet als <?php echo $this->user; ?></span>	
+			<!-- löschen der browsermetadaten -->
+					<a href="<?php echo $this->adminUrl . "?cmd=logout"; ?>" style="border-left:1px solid white">Logout</a> 	
+				</div>
+				</div>
+			
+		</div>
+		<div class="clear_both"></div>
+	
+		<div id="content"> 		
+			<div id="siteMenu">
+				<ul class="menueliste">
+					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confuser"; ?>">Benutzer</a></li>
+					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confsubject";?>">F&auml;cher</a></li>
+					<li class="buttonMenu" ><a href="<?php echo $this->adminUrl . "?cmd=confeducation"; ?>">Bildungsgang</a></li>
+					<li class="buttonMenu"> <a href="<?php echo $this->adminUrl . "?cmd=conflfield"; ?>">Lernfelder </a></li>
+				</ul>
+			 </div>
+			 
+			<!-- dynamisches Laden der Teilinformationen -->
+			<div class="administration">
+		
+				<?php echo $this->content; ?>
+			 </div>
 
-        <div id="page">
-
-            <?php echo $this->content; ?>
-
-        </div>
+	</div> <!--  Content -->
+	<div id="footer">
+	
+	</div> 
+</div><!-- page -->
     </body>
 </html>

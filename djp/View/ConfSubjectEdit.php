@@ -14,7 +14,7 @@ class ConfSubjectEdit
         $view->adminUrl = $config["url"]["client"]["admin"];
         $view->errors = $errors;
         if(!$addOrEdit){
-            $view->actionUrl = $config["url"]["client"]["admin"]."?cmd=consubject&task=add";
+            $view->actionUrl = $config["url"]["client"]["admin"]."?cmd=confsubject&task=add";
             $view->cmd = "Anlegen";
         }else{
             $view->actionUrl = $config["url"]["client"]["admin"]."?cmd=confsubject&task=edit&id=".$subject["Fach_Id"];

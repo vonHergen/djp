@@ -1,0 +1,85 @@
+@CHARSET "ISO-8859-1";
+
+.formatter{
+	padding-right:5px;
+}
+
+
+#modalerDialog{
+	Border:2px solid rgb(8,75,138);
+	background-color:#fff;
+	
+}
+
+.modalerDialogNeuerBemutzer{
+	width:400px;
+	Border:2px solid rgb(8,75,138);
+	
+}
+
+.modalerDialogBildungsgangAnlegen{
+	width:400px;
+	Border:2px solid rgb(8,75,138);
+	
+}
+
+#modalerDialogLernfeld{
+	width:500px;
+	Border:2px solid rgb(8,75,138);
+	
+}
+
+.modalerDialogFach{
+	width:400px;
+	Border:2px solid rgb(8,75,138);
+	
+}
+#modalLernsituation{
+	width:1050px;
+	Border:2px solid rgb(8,75,138);
+	background-color:#ccc;
+	
+}
+#modalerDialogJahreslernFeld{
+	width:400px;
+	Border:2px solid rgb(8,75,138);
+	
+}
+
+.ueberschrift{
+	margin: 0px;
+	background-color:rgb(8,75,138);
+	padding: 5px;
+	color:#ffffff;
+	margin-bottom:10px;
+	
+}
+
+
+
+.zeile{
+	display:block;
+	font-weight:bold;
+	margin-left:5px;
+}
+
+.floatLeft{
+	float:left;
+	margin-right:5px;
+}
+
+#zeile1{
+	height:30px;
+}
+
+#zeile2{
+	height:30px;
+}
+#zeile3{
+	height:200px;
+}
+
+#zeile4{
+	height:40px;
+	heigt-max:200px;
+}
